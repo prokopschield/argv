@@ -1,7 +1,7 @@
 {
 	"name": "@prokopschield/argv",
 	"description": "Argument parser for Node.js",
-	"version": "0.1.0-1",
+	"version": "0.1.0-2",
 	"main": "lib/index.js",
 	"bin": {
 		"argv": "lib/cli.js"

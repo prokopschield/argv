@@ -90,7 +90,7 @@ export class Flags {
 			return this.get(this.aliases[key]);
 		}
 	}
-	expect<K extends string>(keys: K[], obj: { [key in K]?: string }) {
+	expect<K extends string>(keys: K[], obj: { [key in K]?: string } = {}) {
 		let index = 0;
 		for (const arg of keys) {
 			obj[arg] = this.get(arg) || this.ordered[index++] || obj[arg];
