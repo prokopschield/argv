@@ -1,15 +1,9 @@
 export class Flags {
 	execNode: string;
 	execScript: string;
-	aliases: {
-		[key: string]: string;
-	} = {};
-	named: {
-		[key: string]: string;
-	} = {};
-	namedLists: {
-		[key: string]: string[];
-	} = {};
+	aliases: Record<string, string> = {};
+	named: Record<string, string> = {};
+	namedLists: Record<string, string[]> = {};
 	ordered: string[] = [];
 	constructor(argv: string[]) {
 		argv = [...argv]; // avoid rewriting original array
