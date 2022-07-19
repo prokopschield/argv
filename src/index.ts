@@ -91,6 +91,30 @@ export class Flags {
 		}
 		return obj;
 	}
+	/** Same as .expect(), except it mutates this argv object. */
+	expectMutate<K extends string>(
+		keys: K[],
+		obj: { [key in K]?: string } = {}
+	) {
+		for (const arg of keys) {
+			const proper = this.get(arg);
+
+			if (proper) {
+				obj[arg] = proper;
+			}
+
+			const value = this.ordered.shift() || obj[arg];
+
+			if (value) {
+				if (this.aliases[arg]) {
+					obj[arg] = this.named[this.aliases[arg]] = value;
+				} else {
+					obj[arg] = this.named[arg] = value;
+				}
+			}
+		}
+		return obj;
+	}
 }
 
 export default new Flags(process.argv);
