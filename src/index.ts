@@ -101,6 +101,7 @@ export class Flags {
 
 			if (proper) {
 				obj[arg] = proper;
+				continue;
 			}
 
 			const value = this.ordered.shift() || obj[arg];
