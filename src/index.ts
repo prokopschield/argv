@@ -118,4 +118,15 @@ export class Flags {
 	}
 }
 
+export declare interface Flags {
+	expect<K extends string, P extends Partial<{ [key in K]: string }>>(
+		keys: K[],
+		obj?: P
+	): P & Partial<{ [key in K]: string }>;
+	expectMutate<K extends string, P extends Partial<{ [key in K]: string }>>(
+		keys: K[],
+		obj?: P
+	): P & Partial<{ [key in K]: string }>;
+}
+
 export default new Flags(process.argv);
